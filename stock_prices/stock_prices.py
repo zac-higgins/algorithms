@@ -1,15 +1,16 @@
 #!/usr/bin/python
 
+# from recursive_sorting import merge_sort
 import argparse
 import sys
 sys.path.insert(
     1, '/Users/zachiggins/lambdaSchool/cs/sorting/src/recursive_sorting/')
 # importing my merge_sort function from yesterday :)
-from recursive_sorting import merge_sort
+
 
 def find_max_profit(prices):
-    profits = [] # holds all possible buy/sell profit combinations
-    i = 0 # index pointer
+    profits = []  # holds all possible buy/sell profit combinations
+    i = 0  # index pointer
     while i < len(prices) - 1:
         for index, price in enumerate(prices):
             if index + 1 < len(prices):
@@ -19,8 +20,10 @@ def find_max_profit(prices):
                         profits.append(profit)
                 i += 1
 
-    sorted_profits = merge_sort(profits)
-    highest_profit = sorted_profits[-1]
+    # print(profits, "profits")
+    profits.sort()
+    # print(profits, "sorted profits")
+    highest_profit = profits[-1]
     return highest_profit
 
 
